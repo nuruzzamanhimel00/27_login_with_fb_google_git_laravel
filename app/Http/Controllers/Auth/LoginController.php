@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Models\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use App\Providers\RouteServiceProvider;
+use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
@@ -36,5 +39,53 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+    //google redirect
+    public function redirectToGoogle(){
+        return Socialite::driver('google')->redirect();
+    }
+    //google callback
+    public function redirectToGoogleCallback(){
+        $user = Socialite::driver('google')->user();
+        $this->registrationOrLogin($user);
+        return redirect()->route('home');
+    }
+    // ################## Facebook ########################
+    //facebook redirect
+    public function redirectToFacebook(){
+        return Socialite::driver('facebook')->redirect();
+    }
+    //facebook callback
+    public function redirectToFacebookCallback(){
+        $user = Socialite::driver('facebook')->user();
+        $this->registrationOrLogin($user);
+        return redirect()->route('home');
+    }
+
+    // ##################### github #####################
+    //github redirect
+    public function redirectToGithub(){
+        return Socialite::driver('github')->redirect();
+    }
+    //github callback
+    public function redirectToGithubCallback(){
+        $user = Socialite::driver('github')->user();
+        $this->registrationOrLogin($user);
+        return redirect()->route('home');
+    }
+
+
+    protected function registrationOrLogin($data){
+        $user = User::where('email',$data->email)->first();
+        if(!$user){
+            $user = new User;
+            $user->name = $data->name;
+            $user->email = $data->email;
+            $user->provider_id = $data->id;
+            $user->avatar = $data->avatar;
+            $user->save();
+        }
+
+        Auth::login($user);
     }
 }

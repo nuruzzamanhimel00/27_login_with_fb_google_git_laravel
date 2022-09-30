@@ -1,0 +1,9 @@
+Social Login(Google, fb ,github): 
+I Learn this all cours from this videos:
+https://www.youtube.com/watch?v=jIckLu1cKew&t=187s 
+** Laravel Doc: 
+https://laravel.com/docs/8.x/socialite#main-content 
+** for google console find blog help: 
+https://www.tutsmake.com/laravel-8-socialite-google-login-example-tutorial/ 
+** for facebook app setup youtube video help:
+https://www.youtube.com/watch?v=z4rTbKB5m_w&t=772s 
