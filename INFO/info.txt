@@ -5,5 +5,16 @@ https://www.youtube.com/watch?v=jIckLu1cKew&t=187s
 https://laravel.com/docs/8.x/socialite#main-content 
 ** for google console find blog help: 
 https://www.tutsmake.com/laravel-8-socialite-google-login-example-tutorial/ 
+**google serarch:google login with socialite laravel example
 ** for facebook app setup youtube video help:
 https://www.youtube.com/watch?v=z4rTbKB5m_w&t=772s 
+
+****** Google Developer *****
+https://console.cloud.google.com/apis/dashboard
+api and service:
+https://console.cloud.google.com/apis/dashboard?organizationId=0&project=laravel-socialite-test-364204
+****** github developer *******
+https://github.com/settings/developers
+doc for nothing: https://www.positronx.io/laravel-socialite-login-with-github-example-tutorial/
+****** facebook developer *******
+url: https://developers.facebook.com/apps/?show_reminder=true
